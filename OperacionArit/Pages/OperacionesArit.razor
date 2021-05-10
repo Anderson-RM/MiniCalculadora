@@ -1,0 +1,60 @@
+﻿@page "/"
+
+<h1>Hola, Bienvenidos a la Calculadora!</h1>
+
+<table class="table">
+    <tr>
+        <th>Primer Numero</th>
+        <th><input @bind="Primer" /></th>
+    </tr>
+    <tr>
+        <th>Segundo numero</th>
+        <th><input @bind="Segundo" /></th>
+    </tr>
+    <tr>
+        <td>La Suma es:</td>
+        <th>@Suma</th>
+    </tr>
+    <tr>
+        <td>La Resta es:</td>
+        <th>@Resta</th>
+    </tr>
+    <tr>
+        <td>La Multiplicacion es:</td>
+        <th>@Multiplicacion</th>
+    </tr>
+    <tr>
+        <td>La Divicion es:</td>
+        <th>@Divicion</th>
+    </tr>
+</table>
+
+@code{ 
+    public int Primer { get; set; } = 10;
+    public int Segundo { get; set; } = 2;
+    public int suma { get; set; } = 0;
+    public int resta { get; set; } = 0;
+    public int multiplicacion { get; set; } = 0;
+    public int divicion { get; set; } = 0;
+
+    public String Suma { get; set; }
+    public String Resta { get; set; }
+    public String Multiplicacion { get; set; }
+    public String Divicion { get; set; }
+
+    public void Calcular()
+    {
+        var suma = Primer + Segundo;
+        Suma = suma.ToString("");
+
+        var resta = Primer - Segundo;
+        Resta = resta.ToString("");
+
+        var multiplicacion = Primer * Segundo;
+        Multiplicacion = multiplicacion.ToString("");
+
+        var divicion = Primer / Segundo;
+        Divicion = divicion.ToString("");
+    }
+}
+<button class="btn btn-primary" @onclick="Calcular">Calcular</button>
